@@ -1,0 +1,73 @@
+﻿<Page x:Class="FestiApp.View.Event.EventDashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:FestiApp.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:questionnaire="clr-namespace:FestiApp.View.Questionnaire"
+      mc:Ignorable="d"
+      x:Name="EventDashboardView"
+      DataContext="{Binding InspectionEvent, Source={StaticResource Locator}}"
+      Title="Evenement overzicht">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250" />
+            <RowDefinition Height="179*" />
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card Width="662" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,-30" Height="220">
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*" />
+                    <ColumnDefinition Width="80*" />
+                    <ColumnDefinition Width="80*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Row="0" Grid.Column="1" IsReadOnly="True"
+                         Text="{Binding EntityViewModel.StartDate, StringFormat=d}" FontSize="16"
+                         materialDesign:HintAssist.Hint="Start datum"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,10,0" />
+
+
+                <TextBox Grid.Column="2" Grid.Row="0" IsReadOnly="True"
+                         Text="{Binding EntityViewModel.EndDate, StringFormat=d}" FontSize="16"
+                         materialDesign:HintAssist.Hint="Eind datum"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,10,0" />
+
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,10,0" IsReadOnly="True"
+                         Text="{Binding EntityViewModel.Name}" FontSize="16"
+                         materialDesign:HintAssist.Hint="Naam"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+
+                <TextBox Grid.Column="2" Grid.Row="1" IsReadOnly="True" Text="{Binding EntityViewModel.Location}"
+                         FontSize="16" materialDesign:HintAssist.Hint="Plaats"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,10,0" />
+
+                <TextBox Grid.Column="1" Grid.Row="2" IsReadOnly="True" Text="{Binding CustomerVM.Name}" FontSize="16"
+                         materialDesign:HintAssist.Hint="Klant naam"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,10,0" />
+
+                <TextBox Grid.Column="2" Grid.Row="2" IsReadOnly="True" Text="{Binding CustomerVM.PhoneNumber}"
+                         FontSize="16" materialDesign:HintAssist.Hint="Klant telefoonnummer"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,10,0" />
+
+                <Button Command="{Binding ShowAdviceCommand}" Height="Auto" Grid.Row="0" Grid.Column="0" Content="Adviezen" Margin="0,30,10,0"  />
+                <Button Command="{Binding ShowContactsCommand}" Height="Auto" Grid.Row="1"  Content="Contactpersonen" Grid.Column="0" Margin="0,30,10,0"   />
+                <Button Command="{Binding ShowDescriptionCommand}" Height="Auto" Grid.Row="2"  Content="Wensen" Grid.Column="0" Margin="0,30,10,0"   />
+
+            </Grid>
+        </materialDesign:Card>
+        <questionnaire:ListQuestionnaire Grid.Row="1" Margin="10" DataContext="{Binding Questions}" />
+
+
+    </Grid>
+</Page>

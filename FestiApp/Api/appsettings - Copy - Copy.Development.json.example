@@ -1,0 +1,14 @@
+{
+
+  "ConnectionStrings": {
+    "FestiConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=festi;Integrated Security=True;Pooling=False"
+  },
+  "Logging": {
+    "IncludeScopes": true,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  }
+}

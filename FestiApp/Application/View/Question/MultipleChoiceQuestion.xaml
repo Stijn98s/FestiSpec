@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="FestiApp.View.Question.MultipleChoiceQuestion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:questions="clr-namespace:FestiApp.ViewModel.Questions"
+             d:DataContext="{d:DesignInstance questions:MultipleChoiceQuestionViewModel, IsDesignTimeCreatable=False}"
+             xmlns:rules="clr-namespace:FestiApp.ViewModel.Validation"
+             mc:Ignorable="d" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" FontSize="20">Meerkeuzenvraag</Label>
+
+        <TextBox Height="45" Margin="5,-5,0,5" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Name="Questions" Grid.Row="1" FontSize="16" VerticalAlignment="Center"
+                 materialDesign:HintAssist.Hint="Vraag">
+            <TextBox.Text>
+                <Binding Path="Description" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <rules:IsEmptyValidationRule />
+                        <rules:InputLengthRule Min="2" Max="250" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <ListView Grid.Row="2" Margin="5,5,5,5"
+                  ItemsSource="{Binding Options, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBox Margin="-5,-5,0,0" FontSize="16" Height="45" Width="200"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"
+                             materialDesign:HintAssist.Hint="Optie">
+                        <TextBox.Text>
+                            <Binding Path="Value" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <rules:IsEmptyValidationRule />
+                                    <rules:InputLengthRule Min="2" Max="45" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <Button Command="{Binding AddOptionCommand}" Margin="5,0" HorizontalAlignment="Left" Grid.Row="3"
+                Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalContentAlignment="Center"
+                VerticalAlignment="Top" Height="43" Width="43">
+            <Viewbox Width="36" Height="36">
+                <Canvas Width="24" Height="24">
+                    <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" Fill="White" />
+                </Canvas>
+            </Viewbox>
+        </Button>
+    </Grid>
+</UserControl>

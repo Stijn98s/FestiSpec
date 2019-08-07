@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FestiDB.Domain.User">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAACAAAAAAAQIAAAAAAAAAAAAIAAAAAg=</HashCode>
+      <FileName>Domain\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Gender" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.Inspector">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABIAIAAAAAAEAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Domain\Inspector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Availabilities" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.Customer">
+    <Position X="7.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAIAAAQAQAAkAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Domain\Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Contacts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.Question">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAg=</HashCode>
+      <FileName>Domain\Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.Contact">
+    <Position X="7.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAEAAQQAAAAAAAAAAAAAAAAAEAAAg=</HashCode>
+      <FileName>Domain\Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.Advice">
+    <Position X="7.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Advice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.Questionaire">
+    <Position X="13" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAABAAAAAAA=</HashCode>
+      <FileName>Domain\Questionaire.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Questions" />
+      <Property Name="AssignedTo" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.Availability">
+    <Position X="9" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAgAABAAAAAAAAAAgAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Domain\Availability.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Inspector" />
+      <Property Name="Event" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.InspectionEvent">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <AssociationLine Name="Customer" Type="FestiDB.Domain.Customer" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="6.46" />
+        <Point X="9.625" Y="6.46" />
+        <Point X="9.625" Y="6.912" />
+        <Point X="8.5" Y="6.912" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\InspectionEvent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.MeasureQuestion">
+    <Position X="14.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\MeasureQuestion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.TableQuestion">
+    <Position X="13.5" Y="18.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Domain\TableQuestion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.TableQuestionAnswer">
+    <Position X="17.25" Y="19.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\TableQuestionAnswer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AnswerEntries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.DrawQuestionAnswer">
+    <Position X="17.25" Y="17" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAgAAAAAABAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\DrawQuestionAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.MeasureQuestionAnswer">
+    <Position X="17.25" Y="14.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAABAAAAAAAAAAAAAAAAEAAAgAAAAAAA=</HashCode>
+      <FileName>Domain\MeasureQuestionAnswer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_question" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.PictureQuestionAnswer">
+    <Position X="17.25" Y="12.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAgAAAAAABAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\PictureQuestionAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.OpenQuestionAnswer">
+    <Position X="17.25" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAABAAAAAAAAAAAAAAAAEAAAAAgAAAAA=</HashCode>
+      <FileName>Domain\OpenQuestionAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.ScaleQuestionAnswer">
+    <Position X="17.25" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAABAAAAAAAAAAAAAAAAEAAAgAAAAAAA=</HashCode>
+      <FileName>Domain\ScaleQuestionAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.TableQuestionAnswerEntry">
+    <Position X="17.25" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Domain\TableQuestionAnswerEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FestiDB.Domain.Answer">
+    <Position X="18.75" Y="5" Width="1.5" />
+    <AssociationLine Name="Question" Type="FestiDB.Domain.Question" ManuallyRouted="true">
+      <Path>
+        <Point X="18.75" Y="5.499" />
+        <Point X="18.125" Y="5.499" />
+        <Point X="18.125" Y="6.905" />
+        <Point X="14.156" Y="6.905" />
+        <Point X="14.156" Y="7.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Answer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Question" />
+      <Property Name="Inspector" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.Event">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAABIAIAAAQgAUAQAAACAFAAAEAAAAA=</HashCode>
+      <FileName>Domain\Event.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Questionnaires" />
+      <Property Name="Availabilities" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.Questionnaire">
+    <Position X="6.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAgAAAAAAAAAAAAAAQAAAAIAAAEAAABAAAAAAA=</HashCode>
+      <FileName>Domain\Questionnaire.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Questions" />
+      <Property Name="AssignedTo" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.Report">
+    <Position X="3.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Report.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Event" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.Schedule">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\schedule.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Availability" />
+      <Property Name="Event" />
+      <Property Name="Inspector" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FestiDB.Domain.UserAccount">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\UserAccount.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="FestiDB.Domain.Gender" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAA=</HashCode>
+      <FileName>Domain\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

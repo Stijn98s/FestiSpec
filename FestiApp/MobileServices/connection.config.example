@@ -1,0 +1,4 @@
+﻿<connectionStrings >
+  <add name="MS_TableConnectionString" connectionString="Data Source=.;Initial Catalog=festi;Integrated Security=True" providerName="System.Data.SqlClient"/>
+  <add name="geodan_key" connectionString="zet hier je key" />
+</connectionStrings>

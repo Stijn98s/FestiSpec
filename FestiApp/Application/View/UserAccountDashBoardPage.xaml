@@ -1,0 +1,107 @@
+﻿<Page x:Class="FestiApp.View.UserAccountDashBoardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="Gebruikers dashboard"
+      DataContext="{Binding UserAccountDashBoard, Source={StaticResource Locator}}">
+
+    <Grid>
+        <materialDesign:Card Margin="50,90,50,0" Padding="25">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid  Margin="25,10" Column="0" Row="0">
+                    <TextBox FontSize="16" Height="45" IsReadOnly="True" materialDesign:HintAssist.Hint="Voornaam" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.FirstName" UpdateSourceTrigger="PropertyChanged">
+
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid  Margin="25,10" Column="1" Row="0">
+                    <TextBox FontSize="16" Height="45" IsReadOnly="True" materialDesign:HintAssist.Hint="Achternaam" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.LastName" UpdateSourceTrigger="PropertyChanged">
+
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid Margin="25,10" Grid.Row="1" Grid.Column="0">
+                    <TextBox FontSize="16" Height="45" IsReadOnly="True" materialDesign:HintAssist.Hint="Geboortedatum" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.BirthDate" UpdateSourceTrigger="PropertyChanged" StringFormat="d">
+
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid  Margin="25,10" Grid.Row="1" Grid.Column="1">
+                    <TextBox FontSize="16" Height="45" IsReadOnly="True" materialDesign:HintAssist.Hint="Geslacht" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.Gender" UpdateSourceTrigger="PropertyChanged">
+
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid Margin="25,10" Column="0" Grid.Row="2">
+                    <TextBox FontSize="16" Height="45" IsReadOnly="True" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" >
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.Email" UpdateSourceTrigger="PropertyChanged">
+
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid Margin="25,10" Column="1" Grid.Row="2">
+                    <TextBox FontSize="16" Height="45" IsReadOnly="True" materialDesign:HintAssist.Hint="Telefoonnummer" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.Phone" UpdateSourceTrigger="PropertyChanged">
+
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid Margin="25,10" Column="0" Grid.Row="3">
+                    <TextBox FontSize="16" Height="45" IsReadOnly="True" materialDesign:HintAssist.Hint="Rol" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.Role" UpdateSourceTrigger="PropertyChanged">
+
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,25" Width="350" Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </Grid>
+</Page>

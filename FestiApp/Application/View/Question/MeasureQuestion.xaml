@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="FestiApp.View.Question.MeasureQuestion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:rules="clr-namespace:FestiApp.ViewModel.Validation"
+             Background="Transparent"
+             xmlns:questions="clr-namespace:FestiApp.ViewModel.Questions"
+             d:DataContext="{d:DesignInstance questions:MeasureQuestionViewModel, IsDesignTimeCreatable=False}" 
+             mc:Ignorable="d" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" FontSize="20">Meet vraag</Label>
+
+        <TextBox Height="45" Margin="5,-5,0,5" materialDesign:ValidationAssist.UsePopup="True" materialDesign:ValidationAssist.Background="Transparent" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" FontSize="16" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Vraag"  >
+            <TextBox.Text>
+                <Binding Path="Description" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <rules:IsEmptyValidationRule />
+                        <rules:InputLengthRule Min="2" Max="250" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBox Height="45" Margin="5,-5,0,5" materialDesign:HintAssist.Hint="Eenheid"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="2" Grid.Column="0" FontSize="16"   Text="{Binding SelectedUnit, UpdateSourceTrigger=PropertyChanged}" />
+    </Grid>
+</UserControl>

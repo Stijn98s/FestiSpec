@@ -1,0 +1,84 @@
+﻿<Window x:Class="FestiApp.View.Advice.BuilderAdvicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FestiApp.View"
+        xmlns:rules="clr-namespace:FestiApp.ViewModel.Validation"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:advice="clr-namespace:FestiApp.View.Advice"
+      x:Name="AdviceBuilder"
+      mc:Ignorable="d" 
+        DataContext="{Binding AdviceBuilderViewModel, Source={StaticResource Locator}}"
+        Title="Advies builder" ResizeMode="NoResize" WindowStyle="ToolWindow">
+
+    <Window.InputBindings>
+        <KeyBinding Key="Delete" Command="{Binding DeleteCommand}"  CommandParameter="{Binding ElementName=Builder}" />
+    </Window.InputBindings>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="Exporteer" Padding="10,0" Command="{Binding ExportCommand}" CommandParameter="{Binding ElementName=Builder}"></MenuItem>
+            <MenuItem Header="Label" Padding="10,0" Command="{Binding LabelCommand}" CommandParameter="{Binding ElementName=Builder}"></MenuItem>
+        </Menu>
+
+        <Viewbox Grid.Column="1" Grid.Row="0" Margin="0,10,0,10">
+            <Border BorderThickness="2" BorderBrush="Black">
+                <advice:BuilderWrapper x:Name="Builder" Background="White" Width="21cm" Height="29.7cm" />
+            </Border>
+        </Viewbox>
+
+        <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="65"/>
+            </Grid.RowDefinitions>
+
+            <ComboBox SelectedItem="{Binding SelectedQuestionnaire, UpdateSourceTrigger=PropertyChanged}" FontSize="16" ItemsSource="{Binding Questionnaires}" Height="45" Grid.Row="2" Margin="10,0" materialDesign:HintAssist.Hint="Vraaglijst"  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox SelectedItem="{Binding SelectedQuestion, UpdateSourceTrigger=PropertyChanged}" FontSize="16" ItemsSource="{Binding Questions}" Height="45" Grid.Row="3"  Margin="10,0" materialDesign:HintAssist.Hint="Vraag" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Description}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Command="{Binding AddQuestionCommand}" Grid.Row="4" Margin="10" Content="Toevoegen" CommandParameter="{Binding ElementName=Builder}"></Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Padding="0" Width="30" Height="20" Command="{Binding PrevPageCommand}" CommandParameter="{Binding ElementName=Builder}">&lt;</Button>
+            <Button Grid.Column="1" Padding="0" Width="30" Height="20" Command="{Binding NextPageCommand}" CommandParameter="{Binding ElementName=Builder}">&gt;</Button>
+        </Grid>
+
+    </Grid>
+</Window>

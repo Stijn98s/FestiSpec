@@ -1,0 +1,38 @@
+﻿<Window x:Class="FestiApp.View.Contacts.ShowContactsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FestiApp.View.Contacts"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        DataContext="{Binding EventContactsViewModel , Source={StaticResource Locator}}"
+        mc:Ignorable="d"
+        Title="Event Contacten" Width="900" Height="600" ResizeMode="NoResize">
+
+    <Grid Margin="50,30,50,75">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card Margin="10,10,10,10" Grid.ColumnSpan="2" Grid.Column="0">
+            <DataGrid IsReadOnly="True" ItemsSource="{Binding Contacts}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <materialDesign:MaterialDataGridTextColumn Header="Naam" Width="*">
+                        <materialDesign:MaterialDataGridTextColumn.Binding>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="FirstName"/>
+                                <Binding Path="LastName"/>
+                            </MultiBinding>
+                        </materialDesign:MaterialDataGridTextColumn.Binding>
+                    </materialDesign:MaterialDataGridTextColumn>
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding PhoneNumber}" Header="Telefoonnummer" Width="*" />
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Email}" Header="Email" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </materialDesign:Card>
+    </Grid>
+</Window>

@@ -1,0 +1,138 @@
+﻿<Window x:Class="FestiApp.View.User.EditUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FestiApp.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:rules="clr-namespace:FestiApp.ViewModel.Validation"
+        mc:Ignorable="d" 
+      x:Name="EditUserView"
+      DataContext="{Binding EditUserViewModel, Source={StaticResource Locator} }"
+      d:DesignHeight="450" d:DesignWidth="800" Title="Gebruiker aanpassen" Width="900" Height="600" ResizeMode="NoResize">
+
+    <Grid>
+        <materialDesign:Card Margin="50,90,50,0" Padding="25">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid  Margin="25,10" Column="0" Row="0">
+                    <TextBox materialDesign:ValidationAssist.Background ="Transparent" FontSize="16" Height="45" materialDesign:HintAssist.Hint="Voornaam" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.FirstName" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <rules:IsEmptyValidationRule />
+                                    <rules:InputLengthRule Min="2" Max="45" />
+                                    <rules:CharacterOnlyValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid  Margin="25,10" Column="1" Row="0">
+                    <TextBox materialDesign:ValidationAssist.Background ="Transparent" FontSize="16" Height="45" materialDesign:HintAssist.Hint="Achternaam" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.LastName" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <rules:IsEmptyValidationRule />
+                                    <rules:InputLengthRule Min="2" Max="45" />
+                                    <rules:CharacterOnlyValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+
+                    </TextBox>
+                </Grid>
+
+                <Grid Margin="25,10" Grid.Row="1" Grid.Column="0">
+                    <DatePicker materialDesign:ValidationAssist.Background ="Transparent" FontSize="16" Height="45" materialDesign:HintAssist.Hint="Geboortedatum" Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
+                        <DatePicker.SelectedDate>
+                            <Binding  Path="EntityViewModel.BirthDate" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <rules:IsEmptyDateTimeValidationRule/>
+                                    <rules:IsPastDateValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+
+                        </DatePicker.SelectedDate>
+
+                    </DatePicker>
+                </Grid>
+
+                <Grid  Margin="25,10" Grid.Row="1" Grid.Column="1">
+                    <ComboBox materialDesign:ValidationAssist.Background ="Transparent" SelectedItem="{Binding EntityViewModel.Gender}" FontSize="16" Height="45" materialDesign:HintAssist.Hint="Geslacht" ItemsSource="{Binding EntityViewModel.Genders}"  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBox.Text>
+                            <Binding Path="EntityViewModel.Gender" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <rules:IsEmptyGenderValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.Text>
+                    </ComboBox>
+                </Grid>
+
+                <Grid  Margin="25,10"  Column="0" Grid.Row="2">
+                    <TextBox materialDesign:ValidationAssist.Background ="Transparent" FontSize="16" Height="45" materialDesign:HintAssist.Hint="Email"  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.Email" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <rules:IsEmptyValidationRule />
+                                    <rules:IsValidEmailValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid Margin="25,10" Column="1" Grid.Row="2">
+                    <TextBox materialDesign:ValidationAssist.Background ="Transparent" FontSize="16" Height="45" materialDesign:HintAssist.Hint="Telefoonnummer" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="EntityViewModel.Phone" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <rules:IsEmptyValidationRule/>
+                                    <rules:IsPhoneNumberValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+                <Grid  Margin="25,10" Grid.Row="3" Grid.Column="0">
+                    <ComboBox materialDesign:ValidationAssist.Background ="Transparent" SelectedItem="{Binding EntityViewModel.Role}" FontSize="16" Height="45"  materialDesign:HintAssist.Hint="Rol" ItemsSource="{Binding EntityViewModel.UserRoles}" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBox.Text>
+                            <Binding Path="EntityViewModel.Role" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <rules:IsEmptyRoleValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.Text>
+                    </ComboBox>
+                </Grid>
+
+            </Grid>
+        </materialDesign:Card>
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,25" Width="350" Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Width="150" Height="35" HorizontalAlignment="Right" CommandParameter="{Binding ElementName=EditUserView}" Command="{Binding CloseWindowCommand}">Annuleren</Button>
+            <Button Grid.Column="1" Width="150" Height="35" HorizontalAlignment="Right" CommandParameter="{Binding ElementName=EditUserView}" Command="{Binding UpdateEntityCommand}">Opslaan</Button>
+        </Grid>
+    </Grid>
+</Window>
+
+<!--Users.SelectedViewModel-->
